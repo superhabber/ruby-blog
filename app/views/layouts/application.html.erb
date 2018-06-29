@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Blog
+        </title>
+        <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
+    <body>
+      <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="<%= root_path %>">
+              Blog
+          </a>
+          <button aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarText" data-toggle="collapse" type="button">
+              <span class="navbar-toggler-icon">
+              </span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+              <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                      <a class="nav-link" href="<%= root_path %>">
+                          Home
+                          <span class="sr-only">
+                              (current)
+                          </span>
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="<%= posts_path %>">
+                          Posts
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="<%= new_post_path %>">
+                          New post
+                      </a>
+                  </li>
+              </ul> 
+          </div>
+        </div>
+      </nav>
+      <div class="container main">
+        <div class="row">
+          <div class="col-md-12">
+            <% flash.each do |name, message|%>
+              <div class="alert alert-<%=name%>">
+                <%= message %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <%= yield %>
+      </div>
+    </body>
+</html>
