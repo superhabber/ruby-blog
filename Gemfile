@@ -13,7 +13,6 @@ gem 'trix'
 
 gem 'rails', '~> 5.1.6'
 
-gem 'sqlite3'
 
 gem 'puma', '~> 3.7'
 
@@ -42,7 +41,12 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
+  gem 'sqlite3'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+group :production do
+  gem 'pg'
+end
